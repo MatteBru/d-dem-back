@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  issue: one
+  attitude: 1
+  creator: one
+
+two:
+  issue: two
+  attitude: 1
+  creator: two
