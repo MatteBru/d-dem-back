@@ -15,7 +15,16 @@ class StancesController < ApplicationController
 
   # POST /stances
   def create
-    @stance = Stance.new(stance_params)
+    # byebug
+
+    if params[:stance][:new_view]
+      @view = current_user.created_views.create(issue_id: params[:stance][:issue_id], description: params[:stance][:description], attitude: params[:stance][:attitude])
+      @stance = current_user.stances.build(view: @view, importance: stance_params[:importance])
+    else
+      @stance = Stance.new(stance_params)
+    end
+
+    # @stance = Stance.new(stance_params)
 
     old = @stance.user.stances.find{|s| s.issue.id == @stance.issue.id}
 

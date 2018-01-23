@@ -20,6 +20,10 @@ class Issue < ApplicationRecord
     self.stances.count
   end
 
+  def district_votes(district_id)
+    self.users.where(district_id: district_id).count
+  end
+
   def top_views
     self.views.left_joins(:stances).group(:id).order('COUNT(stances.id) DESC')
   end

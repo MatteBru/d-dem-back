@@ -7,10 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :address
       t.string :phone
       t.string :email
-      t.string :party
-      t.string :gender
-      t.string :religion
-      t.string :education
+      t.bigint :district_id
 
       t.timestamps
     end

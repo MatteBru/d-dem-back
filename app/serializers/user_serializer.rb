@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :username, :created_issues, :issues
+  attributes :id, :name, :username, :created_issues, :issues, :district_id
   attribute :my_issues, key: :issues
 
 

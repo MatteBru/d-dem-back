@@ -15,8 +15,12 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    byebug
+    @district = District.find_or_create_by(state: params[:district][:state], cdid: params[:district][:cdid])
+
     @user = User.new(user_params)
-    # byebug
+    @user.district = @district
+
     if @user.save
       token = issue_token(@user)
       render json: {user: UserSerializer.new(@user).attributes, jwt: token}, status: :created, location: @user
