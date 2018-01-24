@@ -1,8 +1,8 @@
 class ViewSerializer < ActiveModel::Serializer
-  attributes :id, :attitude, :description, :votes
+  attributes :id, :attitude, :description, :votes, :created_at
 
   attribute :created_by, key: :creator
-  
+
   has_one :issue
   has_one :creator
 

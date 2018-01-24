@@ -17,6 +17,7 @@ class IssuesController < ApplicationController
 
   # POST /issues
   def create
+    # byebug
     @issue = Issue.new(issue_params)
 
     if @issue.save
@@ -48,6 +49,6 @@ class IssuesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def issue_params
-      params.fetch(:issue, {})
+      params.require(:issue).permit(:creator_id, :title, :category)
     end
 end
