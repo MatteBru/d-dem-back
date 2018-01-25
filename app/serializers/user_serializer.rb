@@ -3,11 +3,6 @@ class UserSerializer < ActiveModel::Serializer
   attribute :my_issues, key: :issues
 
 
-
-  # def gang_outlaws
-  #     object.outlaws.map{|o| {id: o.id, name: o.name, reward: o.reward}}
-  #   end
-
   # def created_issues
   #   object.created_issues
   # end
